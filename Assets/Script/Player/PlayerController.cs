@@ -1,8 +1,17 @@
- using UnityEngine;
+using UnityEngine;
+using Ebac.Core.Singleton;
+using TMPro;
+using DG.Tweening;
+using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     //public
+
+    public bool invencible = false;
+
+    public GameObject endScreen;
+
     [Header("Lerp")]
     public Transform target;
     public float lerpSpeed = 1f;
@@ -12,12 +21,17 @@ public class PlayerController : MonoBehaviour
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckEndLine = "EndLine";
 
-
-    public GameObject endScreen;
-
     //private
     private bool _canRun;
     private Vector3 _pos;
+    private float _currentSpeed;
+    private Vector3 _startPosition;
+
+    private void Start()
+    {
+        _startPosition = transform.position;
+        ResetSpeed();
+    }
 
     void Update()
     {
@@ -29,20 +43,20 @@ public class PlayerController : MonoBehaviour
         _pos.z = transform.position.z;
 
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
-        transform.Translate(transform.forward * speed * Time.deltaTime);
+        transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == tagToCheckEnemy)
+        if (collision.transform.tag == tagToCheckEnemy)
         {
-            EndGame();
+            if (!invencible) EndGame();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == tagToCheckEndLine)
+        if (other.transform.tag == tagToCheckEndLine)
         {
             EndGame();
         }
@@ -58,4 +72,32 @@ public class PlayerController : MonoBehaviour
     {
         _canRun = true;
     }
+
+    #region POWER UPS
+
+    public void PowerUpSpeedUp(float f)
+    {
+        _currentSpeed = f;
+    }
+    public void ResetSpeed()
+    {
+        _currentSpeed = speed;
+    }
+
+    public void SetInvencible(bool b = true)
+    {
+        invencible = b;
+    }
+
+    public void ChangeHeight(float amount, float duration, float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y + amount, animationDuration).SetEase(ease);
+        Invoke(nameof(ResetHeight), duration);
+    }
+
+    public void ResetHeight()
+    {
+        transform.DOMoveY(_startPosition.y, .1f);
+    }
+    #endregion
 }
