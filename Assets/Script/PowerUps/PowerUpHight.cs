@@ -10,6 +10,8 @@ public class PowerUpHight : PowerUpBase
     {
         base.StartPowerUp();
         PlayerController.Instance.ChangeHeight(amountHeight, duration, animationDuration, ease);
+
+        PlayerController.Instance.Bounce();
     }
 
     protected override void EndPowerUp()

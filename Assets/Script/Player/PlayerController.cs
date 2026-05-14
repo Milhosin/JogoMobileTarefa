@@ -22,6 +22,9 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Animation")]
     public AnimatorManager animatorManager;
 
+    [Header("Settings de Surgimento")]
+    [SerializeField] private float spawnDuration = 0.6f;
+
     //private
     private bool _canRun;
     private Vector3 _pos;
@@ -33,7 +36,31 @@ public class PlayerController : Singleton<PlayerController>
     {
         _startPosition = transform.position;
         ResetSpeed();
+
+        transform.localScale = Vector3.zero;
+        transform.DOScale(Vector3.one, spawnDuration).SetEase(Ease.OutBack);
     }
+
+    public void Bounce()
+    {
+        transform.localScale = Vector3.one;
+
+        Sequence bounceSequence = DOTween.Sequence();
+
+        bounceSequence.Append(transform.DOScale(1.2f, 0.15f).SetEase(Ease.OutQuad))
+                      .Append(transform.DOScale(1.0f, 0.15f).SetEase(Ease.InQuad));
+    }
+
+    public void CoinBounce()
+    {
+        transform.localScale = Vector3.one;
+
+        Sequence coinSequence = DOTween.Sequence();
+
+        coinSequence.Append(transform.DOScale(1.08f, 0.08f).SetEase(Ease.OutQuad)) 
+                    .Append(transform.DOScale(1f, 0.08f).SetEase(Ease.InQuad));   
+    }
+
 
     void Update()
     {

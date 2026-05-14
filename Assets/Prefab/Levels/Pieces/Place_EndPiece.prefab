@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 7393742445192165967}
   - component: {fileID: 3370919691325643110}
   - component: {fileID: 6285541224716130459}
+  - component: {fileID: 3587808865876503026}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -192,6 +193,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3587808865876503026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004019937545051380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9325ead71a6cd8d429d1fc8c8255a462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChange
+  duration: 1
+  meshRenderer: {fileID: 3370919691325643110}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &5686258666358660456
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,5 +36,10 @@ public class ItemCollactableBase : MonoBehaviour
     {
         if (particleSystem != null) particleSystem.Play();
         if (audioSource != null) audioSource.Play();
+
+        if (PlayerController.Instance != null)
+        {
+            PlayerController.Instance.CoinBounce();
+        }
     }
 }

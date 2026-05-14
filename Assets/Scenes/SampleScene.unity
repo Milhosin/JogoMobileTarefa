@@ -726,6 +726,56 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &339537898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339537900}
+  - component: {fileID: 339537899}
+  m_Layer: 0
+  m_Name: CoinAnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &339537899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339537898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ea0165c3514314dbcc8e0117e032a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinsAnimationManager
+  itens: []
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.1
+  ease: 27
+  startDelay: 0.2
+  resetMapDelay: 0.2
+--- !u!4 &339537900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339537898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -65.16997, y: 0, z: 31.02877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357340161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,8 +1109,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f675e327aee54b48b16fb849f9d747b, type: 2}
   - {fileID: 11400000, guid: d9f18c6bf2aed934e9d2ba700d33db63, type: 2}
   timeBetweenPieces: 0.3
-  _index: 0
+  _index: 1
   _spawnedPieces: []
+  scaleDuration: 0.1
+  scaleTimeBetweenPieces: 0.05
+  ease: 27
 --- !u!1 &774161457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,49 +1349,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5156129202013452133, guid: 89e20167823a30d459856414377997d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 307302300}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 990011018}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e20167823a30d459856414377997d1, type: 3}
 --- !u!4 &969878053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5156129202013452133, guid: 89e20167823a30d459856414377997d1, type: 3}
   m_PrefabInstance: {fileID: 969878052}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &990011017 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1, type: 3}
+--- !u!114 &990011018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 858997105131879661, guid: 89e20167823a30d459856414377997d1, type: 3}
   m_PrefabInstance: {fileID: 969878052}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &990011018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990011017}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91d6e1a79f627ec4d866db70d1f73caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorManager
-  animator: {fileID: 990011019}
-  animatorSetups:
-  - type: 0
-    trigger: idle
-    speed: 1
-  - type: 1
-    trigger: run
-    speed: 1
-  - type: 2
-    trigger: dead
-    speed: 1.5
---- !u!95 &990011019 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7193805671317595757, guid: 89e20167823a30d459856414377997d1, type: 3}
-  m_PrefabInstance: {fileID: 969878052}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1182157423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1622,7 @@ MonoBehaviour:
   endScreen: {fileID: 1288569056}
   invencible: 0
   animatorManager: {fileID: 990011018}
+  spawnDuration: 0.6
 --- !u!4 &1390036706
 Transform:
   m_ObjectHideFlags: 0
@@ -2489,3 +2518,4 @@ SceneRoots:
   - {fileID: 708924821}
   - {fileID: 2006736109}
   - {fileID: 271578153}
+  - {fileID: 339537900}

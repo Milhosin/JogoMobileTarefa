@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8148206577921026242}
   - component: {fileID: 5278710541715945655}
-  - component: {fileID: 5127301365750302899}
+  - component: {fileID: 7288426467260840111}
   m_Layer: 0
   m_Name: PFB_Coin
   m_TagString: Untagged
@@ -55,7 +55,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5127301365750302899
+--- !u!114 &7288426467260840111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1738117468258824157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f5286001e77e247bf4c913d5293ec3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f2779685fe571c41991a396aa314b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCollactableBase
   compareTag: Player
@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 3321356851331721364}
   - component: {fileID: 1369697881347987817}
   - component: {fileID: 4863565491183362232}
+  - component: {fileID: 5469864394057598351}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -162,3 +163,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5469864394057598351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436124309140995913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9325ead71a6cd8d429d1fc8c8255a462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChange
+  duration: 1
+  meshRenderer: {fileID: 4863565491183362232}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
