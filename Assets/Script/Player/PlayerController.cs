@@ -22,8 +22,13 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Animation")]
     public AnimatorManager animatorManager;
 
+    [Header("VFX")]
+    public ParticleSystem vfxDeath;
+
     [Header("Settings de Surgimento")]
     [SerializeField] private float spawnDuration = 0.6f;
+
+    public bool CanRun => _canRun;
 
     //private
     private bool _canRun;
@@ -105,6 +110,7 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = false;
         endScreen.SetActive(true);
         animatorManager.Play(animationType);
+        if (vfxDeath != null) vfxDeath.Play();
     }
 
     public void StartToRun()
